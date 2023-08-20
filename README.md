@@ -33,21 +33,16 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#apple-wallet-pass-creation-process">Apple Wallet Pass creation process</a></li>
+        <li><a href="#gui-editor">GUI Editor</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -92,7 +87,7 @@ It works on version 1.1. Here is example how to install it on Mac:
   brew install openssl@1.1 ; brew link --overwrite openssl@1.1
   ```
 
-### Apple Wallet Pass creation process.
+### Apple Wallet Pass creation process
 
 1. Create private key
     ```shell
@@ -168,6 +163,16 @@ Especially two fields:
 to see what did you do wrong
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### GUI Editor
+I found great visual designer app for Apple Wallet Passes.
+You can find it under this
+[link](https://pkvd.app/)
+I found it in readme of [this](https://github.com/alexandercerutti/passkit-generator) nodejs lib.
+For the first time I recommend to try with original apple samples to be sure if everything works,
+but You can also start from creating Your own pass.
+
 
 
 <!-- CONTRIBUTING -->
