@@ -35,6 +35,7 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#samples">Samples</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -68,6 +69,14 @@ To create Apple Wallet Pass you need `.pkpass` file. This file is basically a `.
 with specific file structure and a lot of secure stuff inside. You have to meet a few requirements to successfully 
 install it on device. If you have the file You can deploy it on the device how you want. 
 It could be: mobile app, web app, email, etc. 
+
+
+## Samples
+Apple provided link to samples in latest docs, but site under link refused me access to samples.
+Fortunately I found working link in archival docs. If You faced the same issue use this link.
+Later in tutorial I'm using exactly this samples.
+
+Link to samples: https://developer.apple.com/services-account/download?path=/iOS/Wallet_Support_Materials/WalletCompanionFiles.zip
 
 
 <!-- GETTING STARTED -->
