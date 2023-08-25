@@ -108,40 +108,47 @@ It works on version 1.1. Here is example how to install it on Mac:
     openssl req -new -key pkpass.key -out pkpass.csr
     ```
 
-3. Upload your request file.
-
-4. Use this [link](https://developer.apple.com/account/resources/certificates/add) to create a new one
-
-5. Download your `pass.cer` file.
-
-6. Export this file to `.pem format`
+3. Export this file to `.pem` format
     ```shell
     openssl x509 -inform der -in pass.cer -out pass.pem
     ```
 
-7. Download Apple WWDR **G4** cert
+4. Upload your request file.
+
+5. Use this [link](https://developer.apple.com/account/resources/certificates/add) to create a new one
+
+6. Download your `pass.cer` file.
+
+7. Export this file to `.pem` format
+    ```shell
+    openssl x509 -inform der -in pass.cer -out pass.pem
+    ```
+
+8. Download Apple WWDR **G4** cert
 [wwdr cert](https://www.apple.com/certificateauthority/)
 
-8. Export this cert to `.pem`
+9. Export this cert to `.pem`
     ```shell
     openssl x509 -inform der -in AppleWWDRCA.cer -out wwdr.pem
     ```
    
-9. Get pass samples - I don't know why developer portal show that I do not meet some requirements to download this
-samples. I don't know why, but I found another link in archive docs.
+10. Get pass samples - I don't know why developer portal show that I do not meet some requirements to download this
+samples. I don't know why, but I found another 
+[link](https://idmsa.apple.com/IDMSWebAuth/signin?appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&path=%2Fservices-account%2Fdownload%3Fpath%3D%2FiOS%2FWallet_Support_Materials%2FWalletCompanionFiles.zip&rv=1)
+in archive docs.
 
-10. Copy sample to create `.pkpass`
+11. Copy sample to create `.pkpass`
    ```shell
    cp -r WalletCompanionFiles/SamplePasses/BoardingPass.pass ./BoardingPasss.pass
    ```
 
-11. Update `BoaringPass.pass/pass.json` file with data used to create your certs.
+12. Update `BoaringPass.pass/pass.json` file with data used to create your certs.
 Especially two fields: 
     - `passTypeIdentifier` - You provided it during uploading request. Probably it's in format `pass.com.reversed.domain`
     - `teamIdentifier` - It's Your Apple Developer ID. You can find it 
     [here](https://developer.apple.com/account#MembershipDetailsCard) (Team ID field)
 
-12. Create `manifest.json`. It's `.json` file with checksum of every file. It should look like this:
+13. Create `manifest.json`. It's `.json` file with checksum of every file. It should look like this:
       ```json
       {
          "icon.png" : "2a1625e1e1b3b38573d086b5ec158f72f11283a0",
@@ -155,14 +162,14 @@ Especially two fields:
       openssl sha1 <filename>
       ```
     
-13. Generate signification of the file
+14. Generate signification of the file
    ```shell
     openssl smime -binary -sign -certfile wwdr.pem -signer pass_cert.pem -inkey pass_key.pem -in manifest.json -out signature -outform DER -passin pass:<your_password>
    ```
 
-14. Put this `signification` file into `BoardingPass.pass` folder
+15. Put this `signification` file into `BoardingPass.pass` folder
 
-15. Zip `BoardingPass.pass` folder
+16. Zip `BoardingPass.pass` folder
    ```shell
   zip -r bording.pkpass manifest.json pass.json signature icon.png icon@2x.png logo.png logo@2x.png
   ```
